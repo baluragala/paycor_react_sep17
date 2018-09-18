@@ -1,0 +1,20 @@
+ES6
+---
+- scoping -> var, let & const
+- template strings 
+- rest operator
+- spread operator
+- default parameters
+- destructruring 
+- arrow functions
+- for-of
+- object improvements
+- async
+  - callbacks
+  - promises
+  - generators
+
+Day 2
+-----
+Class
+Modules
