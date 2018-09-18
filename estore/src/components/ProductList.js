@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ProductListItem from "./ProductListItem";
 
 class ProductList extends Component {
   constructor(props) {
@@ -34,7 +35,7 @@ class ProductList extends Component {
     };
 
     setTimeout(() => {
-      this.state.products.push({ id: 6, title: "iphone xs" });
+      this.state.products.push({ id: 6, title: "iphone xs", price: 1999 });
       this.setState({ products: this.state.products });
     }, 5000);
   }
@@ -45,7 +46,7 @@ class ProductList extends Component {
         <h1>Products</h1>
         <ul>
           {this.state.products.map(p => (
-            <li>{p.title}</li>
+            <ProductListItem product={p} />
           ))}
         </ul>
       </div>
