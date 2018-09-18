@@ -8,7 +8,21 @@ class App extends Component {
     let fruits = ["Apple", "Banana", "Chikoo"];
     return (
       <div>
-        <p>{message}</p>
+        {/* this 
+      is 
+    only 
+  commment syntax is JSX*/}
+        <p
+          title="this is jsx expression"
+          className="info high"
+          style={{
+            backgroundColor: "orange",
+            fontSize: 30
+          }}
+          myCustomAttribute="1"
+        >
+          {message}
+        </p>
         <p>{message.toUpperCase()}</p>
         <p>{new Date().toDateString()}</p>
         <p>{2 + 2 == 4 ? "Yes" : "No"}</p>
