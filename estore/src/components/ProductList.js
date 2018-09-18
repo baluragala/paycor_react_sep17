@@ -5,6 +5,7 @@ class ProductList extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      message: "",
       products: [
         {
           id: 1,
@@ -14,7 +15,7 @@ class ProductList extends Component {
         {
           id: 2,
           title: "pixel xl",
-          price: 1200
+          price: "1200"
         },
         {
           id: 3,
@@ -24,7 +25,7 @@ class ProductList extends Component {
         {
           id: 4,
           title: "MI note",
-          price: 600
+          price: "600"
         },
         {
           title: "pixel 3",
@@ -38,15 +39,24 @@ class ProductList extends Component {
       this.state.products.push({ id: 6, title: "iphone xs", price: 1999 });
       this.setState({ products: this.state.products });
     }, 5000);
+
+    this.onProductClicked = this.onProductClicked.bind(this);
+  }
+
+  onProductClicked(title) {
+    this.setState({ message: `${title} was clicked` });
   }
 
   render() {
     return (
       <div>
-        <h1>Products</h1>
+        <h1>Products ({this.state.message})</h1>
         <ul>
           {this.state.products.map(p => (
-            <ProductListItem product={p} />
+            <ProductListItem
+              product={p}
+              productClicked={this.onProductClicked}
+            />
           ))}
         </ul>
       </div>
