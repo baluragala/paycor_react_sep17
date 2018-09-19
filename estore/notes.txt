@@ -34,3 +34,21 @@ Event
 Forms
 
 Routing
+
+
+
+Lifecycle methods
+-----------------
+Only for class based components
+  1. Mounting
+    - constructor
+    - render
+    - componentDidMount
+  2. Updating
+    - getDerivedStateFromProps
+    - shouldComponentUpdate 
+    - render
+    - componentDidUpdate
+    
+  3. Unmouting
+    - componentWillUnmount

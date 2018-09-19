@@ -15,17 +15,34 @@ import PropTypes from "prop-types";
 // }
 
 class ProductListItem extends React.Component {
+  constructor(props) {
+    super(props);
+    console.log("Constructor");
+  }
   render() {
     let {
       product: { title, price },
       productClicked
     } = this.props;
+    console.log("render", title);
     return (
       <div className="item" onClick={() => productClicked(title)}>
         <h2>{title}</h2>
         <h3>{price}</h3>
       </div>
     );
+  }
+
+  componentDidMount() {
+    console.log("componentDidMount");
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log("componentDidUpdate");
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    return nextProps.product !== this.props.product;
   }
 }
 

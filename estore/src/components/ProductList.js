@@ -37,6 +37,7 @@ class ProductList extends Component {
 
     setTimeout(() => {
       this.state.products.push({ id: 6, title: "iphone xs", price: 1999 });
+      this.state.products[0] = { ...this.state.products[0], price: 888 };
       this.setState({ products: this.state.products });
     }, 5000);
 
