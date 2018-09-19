@@ -7,6 +7,7 @@ class AddProduct extends Component {
     this.state = { title: "", price: "", category: "" };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.assignStockEleRef = this.assignStockEleRef.bind(this);
   }
 
   handleChange(e) {
@@ -25,7 +26,12 @@ class AddProduct extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log(this.state);
+    console.log(this.state, this.stockEleRef.value);
+  }
+
+  assignStockEleRef(ele) {
+    console.dir(ele);
+    this.stockEleRef = ele;
   }
 
   render() {
@@ -46,6 +52,8 @@ class AddProduct extends Component {
             value={this.state.price}
             onChange={this.handleChange}
           />
+          <label htmlFor="stock">Product Stock</label>
+          <input name="price" type="number" ref={this.assignStockEleRef} />
           <label htmlFor="category">Product Category</label>
           <select
             name="category"
@@ -57,6 +65,7 @@ class AddProduct extends Component {
             <option value="GROCERY">GROCERY</option>
             <option value="CLOTHING">CLOTHING</option>
           </select>
+
           <input type="submit" value="Add Product" />
         </form>
       </div>
