@@ -15,7 +15,7 @@ class ProductList extends Component {
         {
           id: 2,
           title: "pixel xl",
-          price: "1200"
+          price: 1200
         },
         {
           id: 3,
@@ -25,7 +25,7 @@ class ProductList extends Component {
         {
           id: 4,
           title: "MI note",
-          price: "600"
+          price: 600
         },
         {
           title: "pixel 3",
@@ -48,13 +48,22 @@ class ProductList extends Component {
     this.setState({ message: `${title} was clicked` });
   }
 
+  loadProducts(e) {
+    console.log(e.target);
+    alert("Load Products");
+  }
+
   render() {
     return (
       <div>
-        <h1>Products ({this.state.message})</h1>
+        <h1 onMouseEnter={() => console.log("enter")}>
+          Products ({this.state.message})
+        </h1>
+        <button onClick={this.loadProducts}>Load Products</button>
         <ul>
           {this.state.products.map(p => (
             <ProductListItem
+              key={p.id}
               product={p.price !== 1000 ? p : undefined}
               productClicked={this.onProductClicked}
             />
