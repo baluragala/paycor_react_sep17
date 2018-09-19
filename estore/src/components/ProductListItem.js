@@ -1,6 +1,7 @@
 import React from "react";
 import "./ProductListItem.css";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 // function ProductListItem(props) {
 //   let {
@@ -21,13 +22,15 @@ class ProductListItem extends React.Component {
   }
   render() {
     let {
-      product: { title, price },
+      product: { title, price, id },
       productClicked
     } = this.props;
     console.log("render", title);
     return (
       <div className="item" onClick={() => productClicked(title)}>
-        <h2>{title}</h2>
+        <h2>
+          <Link to={`/products/${id}`}>{title}</Link>
+        </h2>
         <h3>{price}</h3>
       </div>
     );

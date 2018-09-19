@@ -8,6 +8,7 @@ import AddProduct from "./components/AddProduct";
 import { Route, Switch } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import NoMatch from "./components/NoMatch";
+import ProductDetail from "./components/ProductDetail";
 
 class App extends Component {
   render() {
@@ -18,6 +19,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/products" component={ProductList} />
           <Route path="/products/new" component={AddProduct} />
+          <Route path="/products/:pid" component={ProductDetail} />
           <Route component={NoMatch} />
         </Switch>
         <Footer />

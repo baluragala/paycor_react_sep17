@@ -35,7 +35,7 @@ class ProductList extends Component {
       ]
     };
 
-    setTimeout(() => {
+    this.timerHandle = setTimeout(() => {
       this.state.products.push({ id: 6, title: "iphone xs", price: 1999 });
       this.state.products[0] = { ...this.state.products[0], price: 888 };
       this.setState({ products: this.state.products });
@@ -53,6 +53,10 @@ class ProductList extends Component {
     alert("Load Products");
   }
 
+  componentWillUnmount() {
+    clearTimeout(this.timerHandle);
+  }
+
   render() {
     return (
       <div>
@@ -64,7 +68,7 @@ class ProductList extends Component {
           {this.state.products.map(p => (
             <ProductListItem
               key={p.id}
-              product={p.price !== 1000 ? p : undefined}
+              product={p}
               productClicked={this.onProductClicked}
             />
           ))}
