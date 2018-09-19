@@ -54,7 +54,7 @@ class ProductList extends Component {
         <ul>
           {this.state.products.map(p => (
             <ProductListItem
-              product={p}
+              product={p.price !== 1000 ? p : undefined}
               productClicked={this.onProductClicked}
             />
           ))}

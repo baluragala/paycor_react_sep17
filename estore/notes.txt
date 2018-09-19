@@ -1,0 +1,36 @@
+Day 3
+-----
+Class
+  inheritance
+Modules
+
+React
+-----
+install and setup 
+estore - first app
+bootstrapping on react app
+JSX 
+  expressions
+  attributes
+  condtional
+  loops
+  children
+Components
+  Function
+  Class
+State
+  intialize
+  raed State
+  make state change
+Props
+  communicaiton -> 1 . P -> C 2. C -> P
+PropTypes
+
+Today
+-----
+defaultProps
+Lifecycle methods
+Event
+Forms
+
+Routing

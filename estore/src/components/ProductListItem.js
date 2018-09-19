@@ -37,4 +37,11 @@ ProductListItem.propTypes = {
   productClicked: PropTypes.func.isRequired
 };
 
+ProductListItem.defaultProps = {
+  product: {
+    title: "default",
+    price: 0
+  }
+};
+
 export default ProductListItem;
