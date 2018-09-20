@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Just Redux</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.0.0/redux.js"></script>
+</head>
+
+<body>
+
+  <button id="inc">INC</button><span id="result"></span><button id="dec">DEC</button>
+
+  <script>
+
+    /*
+  
+      1. Single Source Of Thruth - store
+      2. State is read only - 
+      3. Changes must be made with pure functions - reducers
+  
+      3 core concepts
+      --------------
+      1. store
+      2. action - plain JS object with 1 mandatory key -> {type:'GET_PRODUCTS'}, {type:'ADD_PRODUCT',{title:'test prod'}}
+      3. reducer - 
+  
+      The plan
+      -------
+      1. plan actions - user defined
+      2. code reducers - user defined
+      3. create store - createStore
+    */
+
+    // actions
+
+    const INC = { type: 'INC' }
+    const DEC = { type: 'DEC' }
+
+    //reducer
+
+    const initialState = { counter: 0 }
+    function counterReducer(prevState = initialState, action) {
+      switch (action.type) {
+        case 'INC':
+          return { counter: prevState.counter + 1 }
+        case 'DEC':
+          return { counter: prevState.counter - 1 }
+        default:
+          return prevState;
+      }
+    }
+
+    //store
+    const store = Redux.createStore(counterReducer);
+    store.subscribe(function () {
+      console.log(store.getState());
+    })
+
+    store.subscribe(function () {
+      document.querySelector('#result').textContent = store.getState().counter;
+    })
+
+    // store.dispatch(INC);
+    // store.dispatch(INC)
+    // store.dispatch(INC)
+    // store.dispatch(DEC)
+
+    document.querySelector('#inc').addEventListener('click', function () {
+      store.dispatch(INC)
+    })
+
+    document.querySelector('#dec').addEventListener('click', function () {
+      store.dispatch(DEC)
+    })
+
+  </script>
+
+</body>
+
+</html>

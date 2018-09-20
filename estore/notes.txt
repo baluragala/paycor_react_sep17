@@ -52,3 +52,28 @@ Only for class based components
     
   3. Unmouting
     - componentWillUnmount
+
+Day 4
+-----
+Day 3 Overview
+--------------
+defaultProps
+rendering list (key)
+Lifecycle methods
+Event Handling
+Form
+
+Routing - React Router
+BrowserRouter
+Route
+Link
+NavLink
+Switch
+Redirect
+
+Props
+-----
+match
+location
+history
+
