@@ -23,6 +23,7 @@ class ProductList extends Component {
           Products ({this.props.msg})
         </h1>
         <button onClick={this.loadProducts}>Load Products</button>
+        {this.props.isLoading ? <p>Loading..</p> : null}
         <ul>
           {this.props.prds.map(p => (
             <ProductListItem
@@ -42,7 +43,8 @@ class ProductList extends Component {
 function mapStateToProps(state) {
   return {
     prds: state.products,
-    msg: state.message
+    msg: state.message,
+    isLoading: state.isLoading
   };
 }
 

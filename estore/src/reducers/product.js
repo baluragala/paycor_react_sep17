@@ -1,41 +1,35 @@
-import { GET_PRODUCTS, ADD_PRODUCT } from "../actionTypes/product";
+import {
+  GET_PRODUCTS,
+  ADD_PRODUCT,
+  GET_PRODUCTS_SUCCESS,
+  GET_PRODUCTS_FAILURE,
+  ADD_PRODUCT_SUCCESS
+} from "../actionTypes/product";
 
-const initialState = { products: [], message: "" };
+const initialState = { products: [], message: "", isLoading: false };
 export function productReducer(prevState = initialState, action) {
   switch (action.type) {
     case GET_PRODUCTS:
       return {
         ...prevState,
-        products: [
-          {
-            id: 1,
-            title: "iphone x",
-            price: 2000
-          },
-          {
-            id: 2,
-            title: "pixel xl",
-            price: 1200
-          },
-          {
-            id: 3,
-            title: "note 7",
-            price: 1000
-          },
-          {
-            id: 4,
-            title: "MI note",
-            price: 600
-          },
-          {
-            title: "pixel 3",
-            price: 1000,
-            id: 5
-          }
-        ]
+        isLoading: true
+      };
+    case GET_PRODUCTS_SUCCESS:
+      return {
+        ...prevState,
+        isLoading: false,
+        products: action.products
+      };
+    case GET_PRODUCTS_FAILURE:
+      return {
+        ...prevState,
+        isLoading: false,
+        error: action.error
       };
     case ADD_PRODUCT:
-      return prevState;
+      return { ...prevState, isLoading: true };
+    case ADD_PRODUCT_SUCCESS:
+      return { ...prevState, isLoading: false, product: action.product };
     default:
       return prevState;
   }
