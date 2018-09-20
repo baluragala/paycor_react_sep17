@@ -11,7 +11,21 @@
 
 <body>
 
-  <button id="inc">INC</button><span id="result"></span><button id="dec">DEC</button>
+  <h1 id="result"></h1>
+  <div>
+    <button id="inc">INC</button>
+    <button id="dec">DEC</button>
+  </div>
+  <div>
+    <button id="inc5">INC By 5</button>
+
+    <button id="dec5">DEC By 5</button>
+  </div>
+  <div>
+    <button id="inc25">INC By 25</button>
+
+    <button id="dec25">DEC By 25</button>
+  </div>
 
   <script>
 
@@ -36,8 +50,24 @@
 
     // actions
 
-    const INC = { type: 'INC' }
-    const DEC = { type: 'DEC' }
+    // const INC = { type: 'INC', by: 1 }
+    // const DEC = { type: 'DEC', by: 1 }
+
+    // const INC5 = { type: 'INC', by: 5 }
+    // const DEC5 = { type: 'DEC', by: 5 }
+
+    // const INC25 = { type: 'INC', by: 25 }
+    // const DEC25 = { type: 'DEC', by: 25 }
+
+    // actionCreator
+
+    function incActionCreator(by) {
+      return { type: 'INC', by }
+    }
+
+    function decActionCreator(by) {
+      return { type: 'DEC', by }
+    }
 
     //reducer
 
@@ -45,9 +75,9 @@
     function counterReducer(prevState = initialState, action) {
       switch (action.type) {
         case 'INC':
-          return { counter: prevState.counter + 1 }
+          return { counter: prevState.counter + action.by }
         case 'DEC':
-          return { counter: prevState.counter - 1 }
+          return { counter: prevState.counter - action.by }
         default:
           return prevState;
       }
@@ -63,17 +93,38 @@
       document.querySelector('#result').textContent = store.getState().counter;
     })
 
+
     // store.dispatch(INC);
     // store.dispatch(INC)
     // store.dispatch(INC)
     // store.dispatch(DEC)
 
+    //by 1
     document.querySelector('#inc').addEventListener('click', function () {
-      store.dispatch(INC)
+      store.dispatch(incActionCreator(1))
     })
 
     document.querySelector('#dec').addEventListener('click', function () {
-      store.dispatch(DEC)
+      store.dispatch(decActionCreator(1))
+    })
+
+    //by 5
+    document.querySelector('#inc5').addEventListener('click', function () {
+      store.dispatch(incActionCreator(5))
+    })
+
+    document.querySelector('#dec5').addEventListener('click', function () {
+      store.dispatch(decActionCreator(5))
+    })
+
+
+    //by 25
+    document.querySelector('#inc25').addEventListener('click', function () {
+      store.dispatch(incActionCreator(25))
+    })
+
+    document.querySelector('#dec25').addEventListener('click', function () {
+      store.dispatch(decActionCreator(25))
     })
 
   </script>
