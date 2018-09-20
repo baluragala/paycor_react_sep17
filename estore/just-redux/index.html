@@ -7,6 +7,10 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Just Redux</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.0.0/redux.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/redux-logger@3.0.6/dist/redux-logger.min.js"></script>
+  <script src="./actionCreators.js"></script>
+  <script src="./reducer.js"></script>
+  <script src="./store.js"></script>
 </head>
 
 <body>
@@ -48,56 +52,10 @@
       3. create store - createStore
     */
 
-    // actions
-
-    // const INC = { type: 'INC', by: 1 }
-    // const DEC = { type: 'DEC', by: 1 }
-
-    // const INC5 = { type: 'INC', by: 5 }
-    // const DEC5 = { type: 'DEC', by: 5 }
-
-    // const INC25 = { type: 'INC', by: 25 }
-    // const DEC25 = { type: 'DEC', by: 25 }
-
-    // actionCreator
-
-    function incActionCreator(by) {
-      return { type: 'INC', by }
-    }
-
-    function decActionCreator(by) {
-      return { type: 'DEC', by }
-    }
-
-    //reducer
-
-    const initialState = { counter: 0 }
-    function counterReducer(prevState = initialState, action) {
-      switch (action.type) {
-        case 'INC':
-          return { counter: prevState.counter + action.by }
-        case 'DEC':
-          return { counter: prevState.counter - action.by }
-        default:
-          return prevState;
-      }
-    }
-
-    //store
-    const store = Redux.createStore(counterReducer);
-    store.subscribe(function () {
-      console.log(store.getState());
-    })
-
-    store.subscribe(function () {
-      document.querySelector('#result').textContent = store.getState().counter;
-    })
 
 
-    // store.dispatch(INC);
-    // store.dispatch(INC)
-    // store.dispatch(INC)
-    // store.dispatch(DEC)
+
+
 
     //by 1
     document.querySelector('#inc').addEventListener('click', function () {
@@ -127,6 +85,13 @@
       store.dispatch(decActionCreator(25))
     })
 
+/*
+  flow:
+  -----
+  dispatch action -> store -> reducer -> store -> subscribers ( sync )
+
+  middleware
+*/
   </script>
 
 </body>
