@@ -16,6 +16,11 @@ class NavBar extends Component {
             New Product
           </NavLink>
         </li>
+        <li>
+          <NavLink to="/offers" activeClassName="active">
+            Offers
+          </NavLink>
+        </li>
       </ul>
     );
   }

@@ -7,7 +7,7 @@ import {
 } from "../actionTypes/product";
 
 const initialState = { products: [], message: "", isLoading: false };
-export function productReducer(prevState = initialState, action) {
+export default function productReducer(prevState = initialState, action) {
   switch (action.type) {
     case GET_PRODUCTS:
       return {

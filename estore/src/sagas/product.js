@@ -1,4 +1,4 @@
-import { put, all, takeLatest } from "redux-saga/effects";
+import { put, all, takeLatest, takeEvery } from "redux-saga/effects";
 import {
   getProductsSuccessActionCreator,
   getProductsFailureActionCreator
@@ -18,5 +18,5 @@ function* getProductsFromApi() {
 
 export function* productWatcher() {
   console.log("Starting product watcher");
-  yield all([takeLatest(GET_PRODUCTS, getProductsFromApi)]);
+  yield all([takeEvery(GET_PRODUCTS, getProductsFromApi)]);
 }

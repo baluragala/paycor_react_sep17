@@ -2,15 +2,13 @@ import { createStore, applyMiddleware } from "redux";
 import { productReducer } from "../reducers/product";
 
 import createSagaMiddleware from "redux-saga";
-import { productWatcher } from "../sagas/product";
 import logger from "redux-logger";
+import rootReducer from "../reducers";
+import rootSaga from "../sagas";
 
 const sagaMiddleware = createSagaMiddleware();
-const store = createStore(
-  productReducer,
-  applyMiddleware(sagaMiddleware, logger)
-);
+const store = createStore(rootReducer, applyMiddleware(sagaMiddleware, logger));
 
-sagaMiddleware.run(productWatcher);
+sagaMiddleware.run(rootSaga);
 
 export default store;

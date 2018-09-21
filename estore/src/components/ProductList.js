@@ -40,11 +40,11 @@ class ProductList extends Component {
 
 //map state to props
 
-function mapStateToProps(state) {
+function mapStateToProps(appState) {
   return {
-    prds: state.products,
-    msg: state.message,
-    isLoading: state.isLoading
+    prds: appState.productState.products,
+    msg: appState.productState.message,
+    isLoading: appState.productState.isLoading
   };
 }
 

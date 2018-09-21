@@ -9,6 +9,7 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import NoMatch from "./components/NoMatch";
 import ProductDetail from "./components/ProductDetail";
+import OfferList from "./components/OfferList";
 
 class App extends Component {
   constructor(props) {
@@ -30,6 +31,7 @@ class App extends Component {
           }
         />
         <Route path="/products/:pid" component={ProductDetail} />
+        <Route path="/offers" component={OfferList} />
         <Route component={NoMatch} />
       </Switch>
     );

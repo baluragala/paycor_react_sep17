@@ -77,3 +77,29 @@ match
 location
 history
 
+
+Day 5
+-----
+
+Overview Day 4
+--------------
+Redux 
+ - action
+ - reducer
+ - store
+
+React Redux
+-----------
+Provider
+connect
+  mapStateToProps
+  mapDispatchToProps
+
+Redux Saga
+----------
+middleware
+
+
+
+Offers
+  - Offer Details
