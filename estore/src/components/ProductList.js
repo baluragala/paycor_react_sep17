@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ProductListItem from "./ProductListItem";
 import { connect } from "react-redux";
 import { getProductsActionCreator } from "../actionCreators/product";
+import { withRouter } from "react-router-dom";
 
 class ProductList extends Component {
   constructor(props) {
@@ -61,4 +62,4 @@ const connectedComponent = connect(
   mapDispatchToProps
 );
 
-export default connectedComponent(ProductList);
+export default connectedComponent(withRouter(ProductList));

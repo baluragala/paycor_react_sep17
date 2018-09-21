@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getOffersActionCreator } from "../actionCreators/offer";
+import { withRouter } from "react-router-dom";
 
 class OfferList extends Component {
   componentDidMount() {
@@ -11,7 +12,9 @@ class OfferList extends Component {
   render() {
     return (
       <div>
+        <button onClick={() => this.props.getOffers()}>Get Offers</button>
         <h1>Offers</h1>
+
         {this.props.isLoading ? <p>Loading...</p> : null}
         {this.props.offers.map(o => (
           <li>{o.name}</li>
@@ -39,4 +42,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(OfferList);
+)(withRouter(OfferList));

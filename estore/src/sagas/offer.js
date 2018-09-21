@@ -1,4 +1,12 @@
-import { all, put, takeLatest } from "redux-saga/effects";
+import {
+  all,
+  put,
+  takeLatest,
+  take,
+  fork,
+  cancel,
+  throttle
+} from "redux-saga/effects";
 import {
   getOffersSuccessActionCreator,
   getOffersFailureActionCreator
@@ -17,6 +25,43 @@ function* getOffersFromApi() {
   }
 }
 
+function* processLatest() {
+  let taskId;
+  while (1) {
+    yield take(GET_OFFERS);
+    if (taskId) {
+      yield cancel(taskId);
+      console.log("cancelling");
+    }
+    taskId = yield fork(getOffersFromApi);
+  }
+}
+
+function* processEvery() {
+  //let taskId;
+  while (1) {
+    yield take(GET_OFFERS);
+    // if (taskId) {
+    //   yield cancel(taskId);
+    //   console.log("cancelling");
+    // }
+    yield fork(getOffersFromApi);
+  }
+}
+
+function* process3() {
+  //let taskId;
+  for (let i = 1; i <= 3; i++) {
+    yield take(GET_OFFERS);
+    console.log("Accepting ", i);
+    // if (taskId) {
+    //   yield cancel(taskId);
+    //   console.log("cancelling");
+    // }
+    yield fork(getOffersFromApi);
+  }
+}
+
 export function* offerWatcher() {
-  yield all([takeLatest(GET_OFFERS, getOffersFromApi)]);
+  yield all([throttle(2000, GET_OFFERS, getOffersFromApi)]);
 }
