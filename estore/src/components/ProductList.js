@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { getProductsActionCreator } from "../actionCreators/product";
 import { withRouter } from "react-router-dom";
 
-class ProductList extends Component {
+export class ProductList extends Component {
   constructor(props) {
     super(props);
     this.onProductClicked = this.onProductClicked.bind(this);
@@ -21,7 +21,7 @@ class ProductList extends Component {
     return (
       <div>
         <h1 onMouseEnter={() => console.log("enter")}>
-          Products ({this.props.msg})
+          Products ({this.props.msg} )
         </h1>
         <button onClick={this.loadProducts}>Load Products</button>
         {this.props.isLoading ? <p>Loading..</p> : null}

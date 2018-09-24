@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductList should render correctly 1`] = `
+<div>
+  <h1
+    onMouseEnter={[Function]}
+  >
+    Products (
+     )
+  </h1>
+  <button
+    onClick={[Function]}
+  >
+    Load Products
+  </button>
+  <ul>
+    <ProductListItem
+      key="1"
+      product={
+        Object {
+          "id": 1,
+          "price": 2000,
+          "title": "mac book",
+        }
+      }
+      productClicked={[Function]}
+    />
+  </ul>
+</div>
+`;

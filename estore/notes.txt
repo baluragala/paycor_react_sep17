@@ -121,3 +121,16 @@ Code Splitting
 SSR
 Unit testing
 Deploy
+
+
+Unit testing
+------------
+Suite -> a group unit tests -> describe
+Spec -> a single test -> it
+Setup -> beforeEach, beforeAll
+Teardown -> afterEach, afterAll
+
+1. Assertion library - jest provides - expect
+2. Matcher libabry - jest provides - 
+
+

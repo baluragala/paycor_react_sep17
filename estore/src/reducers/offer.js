@@ -4,7 +4,7 @@ import {
   GET_OFFERS_FAILURE
 } from "../actionTypes/offer";
 
-const initalState = { offers: [], isLoading: false };
+export const initalState = { offers: [], isLoading: false };
 function offerReducer(prevState = initalState, action) {
   switch (action.type) {
     case GET_OFFERS:
