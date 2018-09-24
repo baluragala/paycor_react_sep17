@@ -103,3 +103,21 @@ middleware
 
 Offers
   - Offer Details
+
+
+Day 6
+-----
+
+Day 5 Overview
+ Redux -> actions, reducers and store
+ React - Redux -> connect, Provider
+ Redux Saga - take, takeEvery, takeLatest, throttle, fork
+
+ Webpack - 
+
+Today
+-----
+Code Splitting
+SSR
+Unit testing
+Deploy

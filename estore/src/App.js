@@ -3,13 +3,30 @@ import logo from "./logo.svg";
 import "./App.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import ProductList from "./components/ProductList";
-import AddProduct from "./components/AddProduct";
 import { Route, Switch, Redirect } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import NoMatch from "./components/NoMatch";
-import ProductDetail from "./components/ProductDetail";
-import OfferList from "./components/OfferList";
+import Loadable from "react-loadable";
+
+const LoadableProductList = Loadable({
+  loader: () => import("./components/ProductList"),
+  loading: () => <p>Loading...</p>
+});
+
+const LoadableAddProduct = Loadable({
+  loader: () => import("./components/AddProduct"),
+  loading: () => <p>Loading...</p>
+});
+
+const LoadableProductDetail = Loadable({
+  loader: () => import("./components/ProductDetail"),
+  loading: () => <p>Loading...</p>
+});
+
+const LoadableOfferList = Loadable({
+  loader: () => import("./components/OfferList"),
+  loading: () => <p>Loading...</p>
+});
 
 class App extends Component {
   constructor(props) {
@@ -19,19 +36,19 @@ class App extends Component {
   _renderRoutes() {
     return (
       <Switch>
-        <Route exact path="/products" component={ProductList} />
+        <Route exact path="/products" component={LoadableProductList} />
         <Route
           path="/products/new"
           render={props =>
             this.state.isLoggedIn ? (
-              <AddProduct {...props} myProp="1" />
+              <LoadableAddProduct {...props} myProp="1" />
             ) : (
               <Redirect to="/products" />
             )
           }
         />
-        <Route path="/products/:pid" component={ProductDetail} />
-        <Route path="/offers" component={OfferList} />
+        <Route path="/products/:pid" component={LoadableProductDetail} />
+        <Route path="/offers" component={LoadableOfferList} />
         <Route component={NoMatch} />
       </Switch>
     );
